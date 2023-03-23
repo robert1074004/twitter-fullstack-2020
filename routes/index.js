@@ -7,4 +7,5 @@ const admin = require('./modules/admin')
 router.use('/admin', admin)
 router.get('/signin', userController.login_page)
 router.get('/tweets', tweetController.getTweets)
+router.get('/users/1/tweets', userController.getUser)
 module.exports = router
