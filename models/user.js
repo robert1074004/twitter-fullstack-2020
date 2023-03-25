@@ -10,6 +10,16 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Like);
       User.hasMany(models.Public);
       User.belongsToMany(models.User, {
+        through: models.Notifyship,
+        foreignKey: 'notifyingId',
+        as: 'Notifiers',
+      });
+      User.belongsToMany(models.User, {
+        through: models.Notifyship,
+        foreignKey: 'notifiedId',
+        as: 'Notifyings',
+      });
+      User.belongsToMany(models.User, {
         through: models.Followship,
         foreignKey: 'followingId',
         as: 'Followers',
