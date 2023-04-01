@@ -369,6 +369,14 @@ textarea {
   color: #ffffff;
 }
 
+.image-hover-effect {
+  transition: opacity 0.3s;
+}
+
+.image-hover-effect:hover {
+  opacity: 0.9;
+}
+
 .user-profile-edit-cover {
   width: 100%;
   height: 200px;
