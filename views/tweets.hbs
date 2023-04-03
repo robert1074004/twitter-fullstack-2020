@@ -59,8 +59,8 @@
             </div>
             <div class="col-11">
               <div>
-                <a href="/users/{{this.User.dataValues.id}}" class="me-2"><strong>{{this.User.dataValues.name}}</strong></a>
-                <span style="color: #6C757D; font-size:14px;">@{{this.User.dataValues.account}}．{{moment this.createdAt}}</span>
+                <a href="/users/{{this.User.dataValues.id}}" class="me-2"><strong style="font-size: 16px; font-weight: 700;">{{this.User.dataValues.name}}</strong></a>
+                <span style="color: #6C757D; font-size:14px; font-weight: 400">@{{this.User.dataValues.account}}．{{moment this.createdAt}}</span>
               </div>
               <a href="/tweets/{{this.id}}"><p>{{this.description}}</p></a>
             </div>
@@ -109,13 +109,13 @@
                   </div>
                   <div class="col-10">
                     <div>
-                      <a href="/users/{{this.User.dataValues.id}}"><strong>{{this.User.dataValues.name}}</strong></a>
-                      <span style="color: #6C757D;"> @{{this.User.dataValues.account}}‧{{moment this.createdAt}}</span>
+                      <a href="/users/{{this.User.dataValues.id}}"><strong style="font-size: 16px; font-weight: 700;">{{this.User.dataValues.name}}</strong></a>
+                      <span style="color: #6C757D; font-size:14px; font-weight: 400"> @{{this.User.dataValues.account}}‧{{moment this.createdAt}}</span>
                     </div>
                     <div>
                       <p class="mb-5">{{this.description}}</p>
-                      <span>回覆給<span class="ms-1"
-                          style="color: #FF6600;">@{{this.User.dataValues.account}}</span></span>
+                      <span style="color: #6C757D; font-size:16px; font-weight: 400">回覆給<span class="ms-1"
+                          style="color: #FF6600;  font-size:14px; font-weight: 400">@{{this.User.dataValues.account}}</span></span>
                     </div>
                   </div>
                 </div>
@@ -125,7 +125,7 @@
                     style="border-radius:50%; margin-right: 3px;" />
                 </a>
                 <form action="/tweets/{{this.id}}/replies" method="POST" onsubmit="return validateReply();">
-                  <textarea class="modal-input-tweets" id="user-reply-in-main" placeholder="推你的回覆" name="comment" rows="4" cols="100"
+                  <textarea class="modal-input-tweets" id="user-reply-in-main" placeholder="推你的回覆" name="comment" rows="4" cols="100" style="color: #6C757D; font-size:16px; font-weight: 400"
                     required></textarea>
                   <div class="d-flex flex-row-reverse mb-1">
                     <button class="tweetbtn" type="submit">回覆</button>
