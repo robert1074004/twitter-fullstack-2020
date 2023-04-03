@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row" style="padding-left:98px; padding-right:118px;">
     {{> leftbar route='tweets'}}
-    <div class="col-7">
+    <div class="col-7" style="border: 1px solid #E6ECF0;padding:0px;">
       <div class="main-page">
         <h4><strong>首頁</strong></h4>
       </div>
@@ -60,17 +60,17 @@
             </div>
             <div class="col-11">
               <div>
-                <a href="/users/{{this.User.dataValues.id}}"><strong>{{this.User.dataValues.name}}</strong></a>
-                <span style="color: #6C757D;">@{{this.User.dataValues.account}}．{{moment this.createdAt}}</span>
+                <a href="/users/{{this.User.dataValues.id}}" class="me-2"><strong>{{this.User.dataValues.name}}</strong></a>
+                <span style="color: #6C757D; font-size:14px;">@{{this.User.dataValues.account}}．{{moment this.createdAt}}</span>
               </div>
               <a href="/tweets/{{this.id}}"><p>{{this.description}}</p></a>
             </div>
           </div>
           <div class="d-flex">
-            <div>
-              <button type="submit" class="btn" data-bs-toggle="modal" data-bs-target="#reply-modal{{this.id}}"
-                style="padding-right: 0px;"><img class="left-bar-icon" src="/images/reply-outlined@2x.png" alt="reply"></button>
-              <span class=""
+            <form action="/tweets/{{this.id}}" method="GET" style="margin-right:29px">
+              <button type="submit" class="btn" style="padding-right: 0px;"><img class="left-bar-icon"
+                  src="/images/reply-outlined@2x.png" alt="reply"></button>
+              <span
                 style="line-height: 14px; font-size:14px; font-weight:600; color: #6C757D;">{{this.Replies.length}}</span>
             </div>
               
