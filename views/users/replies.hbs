@@ -176,15 +176,18 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <img src="{{user.avatar}}" class="fl" width="50px" height="50px"
-          style="border-radius:50%; margin-right: 3px;" />
-        <form action="/tweets" method="POST">
-          <textarea class="modal-input-tweets" id="user-tweet-description-in-replies" type="description"
-            placeholder="有什麼新鮮事？" name="description" id="user-tweet-description" maxlength="150" rows="3" cols="100"
+        <a href="/users/{{user.id}}">
+          <img src="{{user.avatar}}" class="fl" width="50px" height="50px"
+            style="border-radius:50%; margin-right: 3px;" />
+        </a>
+
+        <form action="/tweets" method="POST" onsubmit="return validateTweet();">
+          <textarea class="modal-input-tweets" id="user-tweet-description-in-main" type="description"
+            placeholder="有什麼新鮮事？" name="description" id="user-tweet-description" maxlength="140" rows="3" cols="100"
             required></textarea>
           <div class="d-flex flex-row-reverse mb-1">
             <button class="tweetbtn" type="submit">推文</button>
-            <p id="user-tweet-description-alert-in-replies" class="user-tweet-alertMsg"></p>
+            <p id="user-tweet-description-alert-in-main" class="user-tweet-alertMsg"></p>
           </div>
         </form>
       </div>
@@ -202,4 +205,24 @@
   document.getElementById('self-introduction').addEventListener('input', function () {
     document.getElementById('self-introduction-char-count').textContent = this.value.length + ' / 160';
   });
+
+  const userTweetDescription = document.getElementById('user-tweet-description-in-main')
+  const userTweetDescriptionAlertMsg = document.getElementById('user-tweet-description-alert-in-main')
+
+  userTweetDescription.addEventListener('input', function userTweetModalMsg(e) {
+    const tweetContent = e.target.value.trim();
+    if (!tweetContent.length) {
+      userTweetDescriptionAlertMsg.innerHTML = '內容不可超過 140 字';
+    } else if (tweetContent.length <= 140) { userTweetDescriptionAlertMsg.innerHTML = `${tweetContent.length}/140`; } else {
+      userTweetDescriptionAlertMsg.innerHTML = '內容不可超過 140 字';
+    }
+  });
+
+  function validateTweet() {
+    const tweetContent = userTweetDescription.value.trim(); if (!tweetContent.length || tweetContent.length > 140) {
+      return false;
+    }
+    return true;
+  }
+
 </script>
