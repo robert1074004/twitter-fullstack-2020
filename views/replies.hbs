@@ -56,7 +56,7 @@
         {{!-- 回覆彈跳視窗 --}}
         <div class="modal" tabindex="-1" id="user-replies-modal{{tweet.id}}">
           <div class="modal-dialog modal-lg">
-            <div class="modal-content">
+            <div class="modal-content user-profile-edit">
               <div class="modal-header">
                 <img src="/images/edit-profile-close@2x.png" class="close-image user-profile-edit" data-bs-dismiss="modal" alt="Close">
               </div>
@@ -128,9 +128,9 @@
 </div>
 
 {{!-- user推文彈跳視窗 --}}
-<div class="modal" tabindex="-1" id="user-tweet-modal">
+<div class="modal" tabindex="-1" id="user-tweet-modal" class="modal-content user-profile-edit">
   <div class="modal-dialog modal-lg">
-    <div class="modal-content">
+    <div class="modal-content user-profile-edit">
       <div class="modal-header">
         <img src="/images/edit-profile-close@2x.png" class="close-image user-profile-edit" data-bs-dismiss="modal" alt="Close">
       </div>
