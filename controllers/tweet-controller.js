@@ -72,8 +72,16 @@ const tweetController = {
           isLiked,
           tweet: tweet.toJSON(),
           reply,
-          LocaleDate: tweet.toJSON().updatedAt.toLocaleDateString(),
-          LocaleTime: tweet.toJSON().updatedAt.toLocaleTimeString(),
+          LocaleDate: tweet.toJSON().updatedAt.toLocaleDateString('zh-TW', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          }),
+          LocaleTime: tweet.toJSON().updatedAt.toLocaleTimeString('zh-TW', {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: true,
+          }),
         })
       })
   },

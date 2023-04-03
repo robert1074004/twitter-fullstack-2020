@@ -79,10 +79,20 @@ a:hover {
   right: 10%;
   bottom: 10%;
 }
-
+.ac-img {
+  width: 40px;
+  height: 40px;
+}
+.word {
+  font-size: 18px;
+}
 .left-bar-icon {
-  width: 35px;
-  height: 35px;
+  width: 20px;
+  height: 20px;
+  margin-right: 17.62px;
+}
+.left-bar-margin {
+  margin-bottom: 40px;
 }
 .modal-input-tweets {
   width: 70%;
@@ -132,7 +142,7 @@ textarea {
 
 .logout {
   position: absolute;
-  bottom: 100px;
+  bottom: 20px;
 }
 .user-profile-header-back img {
   width: 50%;
