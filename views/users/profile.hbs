@@ -34,35 +34,38 @@
             <button type="button" class="user-profile-edit-btn" data-bs-toggle="modal"
               data-bs-target="#editProfileModal">編輯個人資料</button>
             {{else}}
-            <div class="d-flex justify-content-between align-items-center" style="float: right;width: 208px;height: 40px;">
+            <div class="d-flex justify-content-between align-items-center"
+              style="float: right;width: 208px;height: 40px;">
               <img src="/images/btn_msgmsg.png" style="width: 40px;height:40px;">
               {{#if visitUser.isNotified}}
               {{!-- <form action="/notice/{{visitUser.id}}?_method=DELETE"> --}}
-                <button class="border-0" type="submit" style="background-color: white;"> <img src="/images/btn_notfi_fill.png"
-                    style="width: 40px;height:40px;"></button>
+                <button class="border-0" type="submit" style="background-color: white;"> <img
+                    src="/images/btn_notfi_fill.png" style="width: 40px;height:40px;"></button>
                 {{!--
               </form> --}}
               {{else}}
               {{!-- <form action="/notice/{{visitUser.id}}"> --}}
-                <button class="border-0" type="submit" style="background-color: white;"> <img src="/images/btn_notfibell.png"
-                    style="width: 40px;height:40px;"></button>
+                <button class="border-0" type="submit" style="background-color: white;"> <img
+                    src="/images/btn_notfibell.png" style="width: 40px;height:40px;"></button>
                 {{!--
               </form> --}}
               {{/if}}
               {{#if isFollowing}}
               <form action="/followships/{{visitUser.id}}?_method=DELETE" method="POST">
-                <button type="submit" class="btn" style="background: #FF6600;color:white;border-radius: 50px;">正在跟隨</button>
+                <button type="submit" class="btn"
+                  style="background: #FF6600;color:white;border-radius: 50px;">正在跟隨</button>
               </form>
               {{else}}
               <form action="/followships" method="POST">
-                <button class="btn btn-outline" style="color: #FF6600;border-radius: 50px; border: 1px solid #FF6600;" name="id"
-                  value="{{visitUser.id}}">追蹤</button>
+                <button class="btn btn-outline" style="color: #FF6600;border-radius: 50px; border: 1px solid #FF6600;"
+                  name="id" value="{{visitUser.id}}">追蹤</button>
               </form>
               {{/if}}
             </div>
             {{/ifCond}}
             {{!-- User profile edit modal --}}
-            <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+            <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel"
+              aria-hidden="true">
               <div class="modal-dialog">
                 <form action="/api/users/{{user.id}}" enctype="multipart/form-data" method="post">
                   <input type="hidden" name="_method" value="PUT">
@@ -70,8 +73,8 @@
                     <!-- Modal header -->
                     <div class="modal-header user-profile-edit d-flex">
                       <div class="p-2">
-                        <img src="/images/edit-profile-close@2x.png" class="close-image user-profile-edit" data-bs-dismiss="modal"
-                          alt="Close">
+                        <img src="/images/edit-profile-close@2x.png" class="close-image user-profile-edit"
+                          data-bs-dismiss="modal" alt="Close">
                       </div>
                       <div class="p-2 flex-grow-1">
                         <b class="modal-title user-profile-edit mb-0" id="editProfileModalLabel">編輯個人資料</b>
@@ -83,15 +86,19 @@
                     <div class="modal-body user-profile-edit">
                       <div class="user-profile-edit-cover">
                         <label for="cover">
-                          <img src="{{user.cover}}" alt="Cover Image" class="image-hover-effect" style="cursor: pointer;">
+                          <img src="{{user.cover}}" alt="Cover Image" class="image-hover-effect"
+                            style="cursor: pointer;">
                         </label>
-                        <input type="file" class="user-profile-edit-form-control d-none" id="cover" name="cover" accept="image/*">
+                        <input type="file" class="user-profile-edit-form-control d-none" id="cover" name="cover"
+                          accept="image/*">
                       </div>
                       <div class="user-profile-edit-image">
                         <label for="avatar">
-                          <img src="{{user.avatar}}" alt="Profile Image" class="image-hover-effect" style="cursor: pointer;">
+                          <img src="{{user.avatar}}" alt="Profile Image" class="image-hover-effect"
+                            style="cursor: pointer;">
                         </label>
-                        <input type="file" class="user-profile-edit-form-control d-none" id="avatar" name="avatar" accept="image/*">
+                        <input type="file" class="user-profile-edit-form-control d-none" id="avatar" name="avatar"
+                          accept="image/*">
                       </div>
                       <!-- Name input -->
                       <div class="user-profile-edit-form">
@@ -104,8 +111,8 @@
                       <!-- Self-introduction input -->
                       <div class="user-profile-edit-form">
                         <label for="self-introduction" class="user-profile-edit-form-label">自我介紹</label>
-                        <textarea class="user-profile-edit-form-control" id="self-introduction" name="introduction" rows="4"
-                          maxlength="160" placeholder="請輸入自我介紹">{{user.introduction}}</textarea>
+                        <textarea class="user-profile-edit-form-control" id="self-introduction" name="introduction"
+                          rows="4" maxlength="160" placeholder="請輸入自我介紹">{{user.introduction}}</textarea>
                       </div>
                       <span class="form-text float-end" id="self-introduction-char-count">0 / 160</span>
                     </div>
@@ -123,11 +130,11 @@
               <p class="mt-2">{{visitUser.introduction}}</p>
             </div>
             <div class="user-profile-about-follow">
-              <a href="/users/{{visitUser.id}}/followers">
-                <p><span class="user-profile-follow-count">{{visitUser.Followers.length}} 個</span>跟隨中</p>
+              <a href="/users/{{visitUser.id}}/Followings">
+                <p><span class="user-profile-follow-count">{{visitUser.Followings.length}} 個</span>跟隨中</p>
               </a>
-              <a href="/users/{{visitUser.id}}/followings">
-                <p><span class="user-profile-follow-count">{{visitUser.Followings.length}} 位</span>跟隨者</p>
+              <a href="/users/{{visitUser.id}}/Followers">
+                <p><span class="user-profile-follow-count">{{visitUser.Followers.length}} 位</span>跟隨者</p>
               </a>
             </div>
           </div>
@@ -137,15 +144,15 @@
         {{#each visitUser.Tweets}}
         <div class="user-replies">
           <a href="/users/{{../visitUser.id}}">
-          <img src="{{../visitUser.avatar}}" width="50px" height="50px" style="border-radius:50%;" />
-          <div class="user-replies-content">
-            <div class="user-replies-name-time">
-              <b>{{subText ../visitUser.name 20}}</b>
-              <span>@{{subText ../visitUser.account 20}}・{{moment this.createdAt}}</span>
-            </div>
+            <img src="{{../visitUser.avatar}}" width="50px" height="50px" style="border-radius:50%;" />
+            <div class="user-replies-content">
+              <div class="user-replies-name-time">
+                <b>{{subText ../visitUser.name 20}}</b>
+                <span>@{{subText ../visitUser.account 20}}・{{moment this.createdAt}}</span>
+              </div>
           </a>
-            <div class="user-replies-details">
-              <a href="/tweets/{{this.id}}">
+          <div class="user-replies-details">
+            <a href="/tweets/{{this.id}}">
               <div class="user-replies-details-reply-to">
                 <div class="user-replies-details-reply">
                   <p>{{subText this.description 140}}</p>
@@ -159,16 +166,16 @@
                   </div>
                 </div>
               </div>
-              </a>
-            </div>
+            </a>
           </div>
         </div>
-        <hr>
-        {{/each}}
       </div>
+      <hr>
+      {{/each}}
     </div>
-    {{> rightbar}}
   </div>
+  {{> rightbar}}
+</div>
 </div>
 
 {{!-- user推文彈跳視窗 --}}

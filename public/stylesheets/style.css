@@ -79,21 +79,26 @@ a:hover {
   right: 10%;
   bottom: 10%;
 }
+
 .ac-img {
   width: 40px;
   height: 40px;
 }
+
 .word {
   font-size: 18px;
 }
+
 .left-bar-icon {
   width: 20px;
   height: 20px;
   margin-right: 17.62px;
 }
+
 .left-bar-margin {
   margin-bottom: 40px;
 }
+
 .modal-input-tweets {
   width: 70%;
   height: 80px;
@@ -136,6 +141,7 @@ textarea {
 .replies-page-border-bottom {
   border-bottom: 1px solid #E6ECF0;
 }
+
 .fix-bar {
   position: fixed;
 }
@@ -144,6 +150,7 @@ textarea {
   position: absolute;
   bottom: 20px;
 }
+
 .user-profile-header-back img {
   width: 50%;
   height: 50%;
@@ -225,6 +232,7 @@ textarea {
   font-size: 14px;
   color: #171725;
 }
+
 .user-profile-follow-count {
   font-size: 14px;
   color: #171725;
@@ -464,4 +472,108 @@ textarea {
 .form-text.float-end {
   width: auto;
   margin-right: 16px;
+}
+
+.font-lg-dark {
+  font-size: 24px;
+  color: #171725;
+  font-weight: bold;
+}
+
+.home-page {
+  margin: 24px 12px;
+}
+
+.tweet-card-name,
+.tweet-card .text-box {
+  margin: 0px 10px 30px 67px;
+}
+
+.tweet-card .text-box img {
+  margin-top: 8px;
+  width: 15px
+}
+
+.tweet-card .text-box span {
+  position: relative;
+}
+
+.tweet-card .text-box .speech-bubble {
+  position: absolute;
+  bottom: -30px;
+  left: 0px
+}
+
+.tweet-card .text-box .like-w {
+  position: absolute;
+  bottom: -30px;
+  left: 80px;
+}
+
+.font-name {
+  font-size: 16px;
+  color: #171725;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.font-account,
+.gray {
+  font-size: 14px;
+  color: #92929D;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tweet-post .text-box {
+  margin: 0px 10px 40px 67px;
+}
+
+.tweet-card .btn-close {
+  position: absolute;
+  top: 30px;
+  right: 10px;
+}
+
+.tweet-card {
+  padding: 16px;
+  border-bottom: 1px solid #E6ECF0;
+  position: relative;
+  word-wrap: break-word
+}
+
+.admin-container .row .main {
+  width: 1125px;
+}
+
+.tweet-post img,
+.tweet-card img {
+  position: absolute;
+  width: 50px;
+}
+
+.row .main,
+.row .user-main {
+  min-height: 100vh;
+  max-height: 100%
+}
+
+.main .tweet-card {
+  margin: 0 -12px;
+}
+
+.main .hr-line {
+  margin: 0px -12px;
+  border: 1px solid #E6ECF0;
+  top: 30%;
+  left: 30%;
+}
+
+.main {
+  border-left: 1px solid #E6ECF0;
+  border-right: 1px solid #E6ECF0;
+  height: 100%;
 }
