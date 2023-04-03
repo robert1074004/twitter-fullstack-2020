@@ -36,7 +36,7 @@
                     name="description" id="user-tweet-description" maxlength="140" rows="3" cols="100" required></textarea>
                   <div class="d-flex flex-row-reverse mb-1">
                     <button class="tweetbtn" type="submit">推文</button>
-                    <p id="user-tweet-description-alert-in-main" class="user-tweet-alertMsg"></p>
+                    <p id="user-tweet-description-alert-in-main" class="user-tweet-alertMsg">字數不可超過 140 字</p>
                   </div>
                 </form>
               </div>
@@ -129,7 +129,7 @@
                     required></textarea>
                   <div class="d-flex flex-row-reverse mb-1">
                     <button class="tweetbtn" type="submit">回覆</button>
-                    <p id="user-reply-alert-in-main" class="user-reply-alertMsg"></p>
+                    <p id="user-reply-alert-in-main" class="user-reply-alertMsg">內容不可空白</p>
                   </div>
                 </form>
               </div>
@@ -195,16 +195,19 @@
   const userReplyDescription = document.getElementById('user-reply-in-main')
   const userReplyDescriptionAlertMsg = document.getElementById('user-reply-alert-in-main')
 
-  userTweetDescription.addEventListener('input', function userTweetModalMsg(e) {
-    const tweetContent = e.target.value.trim();
-    if (!tweetContent.length) {
-      userTweetDescriptionAlertMsg.innerHTML = '內容不可超過 140 字';
-    } else if (tweetContent.length <= 140) {
-      userTweetDescriptionAlertMsg.innerHTML = `${tweetContent.length}/140`;
-    } else {
-      userTweetDescriptionAlertMsg.innerHTML = '內容不可超過 140 字';
-    }
-  });
+    userTweetDescription.addEventListener('input', function userTweetModalMsg(e) {
+        const tweetContent = e.target.value.trim();
+        if (!tweetContent.length) {
+          userTweetDescriptionAlertMsg.innerHTML = '內容不可空白';
+          userTweetDescriptionAlertMsg.style.color = 'red';
+        } else if (tweetContent.length <= 140) {
+          userTweetDescriptionAlertMsg.innerHTML = `${tweetContent.length}/140`;
+          userTweetDescriptionAlertMsg.style.color = 'black';
+        } else {
+          userTweetDescriptionAlertMsg.innerHTML = '字數不可超過 140 字';
+          userTweetDescriptionAlertMsg.style.color = 'red';
+        }
+      });
 
   function validateTweet() {
     const tweetContent = userTweetDescription.value.trim();

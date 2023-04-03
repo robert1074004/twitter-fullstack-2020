@@ -190,7 +190,7 @@
             required></textarea>
           <div class="d-flex flex-row-reverse mb-1">
             <button class="tweetbtn" type="submit">推文</button>
-            <p id="user-tweet-description-alert-in-main" class="user-tweet-alertMsg"></p>
+            <p id="user-tweet-description-alert-in-main" class="user-tweet-alertMsg">字數不可超過 140 字</p>
           </div>
         </form>
       </div>
@@ -209,17 +209,19 @@
     document.getElementById('self-introduction-char-count').textContent = this.value.length + ' / 160';
   });
 
-  const userTweetDescription = document.getElementById('user-tweet-description-in-main')
-  const userTweetDescriptionAlertMsg = document.getElementById('user-tweet-description-alert-in-main')
-
   userTweetDescription.addEventListener('input', function userTweetModalMsg(e) {
-    const tweetContent = e.target.value.trim();
-    if (!tweetContent.length) {
-      userTweetDescriptionAlertMsg.innerHTML = '內容不可超過 140 字';
-    } else if (tweetContent.length <= 140) { userTweetDescriptionAlertMsg.innerHTML = `${tweetContent.length}/140`; } else {
-      userTweetDescriptionAlertMsg.innerHTML = '內容不可超過 140 字';
-    }
-  });
+      const tweetContent = e.target.value.trim();
+      if (!tweetContent.length) {
+        userTweetDescriptionAlertMsg.innerHTML = '內容不可空白';
+        userTweetDescriptionAlertMsg.style.color = 'red';
+      } else if (tweetContent.length <= 140) {
+        userTweetDescriptionAlertMsg.innerHTML = `${tweetContent.length}/140`;
+        userTweetDescriptionAlertMsg.style.color = 'black';
+      } else {
+        userTweetDescriptionAlertMsg.innerHTML = '字數不可超過 140 字';
+        userTweetDescriptionAlertMsg.style.color = 'red';
+      }
+    });
 
   function validateTweet() {
     const tweetContent = userTweetDescription.value.trim(); if (!tweetContent.length || tweetContent.length > 140) {
