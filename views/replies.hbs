@@ -16,7 +16,7 @@
         </div>
 
         <div class="col-10">
-          <a href="/users/{{tweet.User.id}}"><strong>{{subText tweet.User.name 20}}</strong></a>
+          <a href="/users/{{tweet.User.id}}"><strong style="font-size: 16px; font-weight: 700;">{{subText tweet.User.name 20}}</strong></a>
           <p>@{{subText tweet.User.account 20}}</p>
         </div>
 
@@ -71,12 +71,12 @@
                   </div>
                   <div class="col-10">
                     <div>
-                      <a href="/users/{{tweet.User.id}}"><strong>{{tweet.User.name}}</strong></a>
-                      <span>@{{tweet.User.account}}·{{moment tweet.updatedAt}}</span>
+                      <a href="/users/{{tweet.User.id}}"><strong style="font-size: 16px; font-weight: 700;">{{tweet.User.name}}</strong></a>
+                      <span style="color: #6C757D; font-size:14px; font-weight: 400">@{{tweet.User.account}}·{{moment tweet.updatedAt}}</span>
                     </div>
                     <div>
                       <p class="mb-5">{{subText tweet.description 140}}</p>
-                      <span>回覆給<span class="ms-1" style="color: #FF6600;">@{{tweet.User.account}}</span></span>
+                      <span style="color: #6C757D; font-size:16px; font-weight: 400">回覆給<span class="ms-1" style="color: #FF6600; font-size:14px; font-weight: 400">@{{tweet.User.account}}</span></span>
                     </div>
                   </div>
                 </div>
@@ -86,7 +86,7 @@
                     style="border-radius:50%; margin-right: 3px;" />
                 </a>
                 <form action="/tweets/{{tweet.id}}/replies" method="POST">
-                  <textarea class="modal-input-tweets" placeholder="推你的回覆" name="comment" id="user-reply-in-replies" maxlength="145"
+                  <textarea class="modal-input-tweets" placeholder="推你的回覆" name="comment" id="user-reply-in-replies" maxlength="145" style="color: #6C757D; font-size:16px; font-weight: 400"
                     rows="3" cols="100"></textarea>
                   <div class="d-flex flex-row-reverse mb-1">
                     <button class="tweetbtn" type="submit" id="submit-reply">回覆</button>
@@ -112,8 +112,8 @@
             </div>
             <div class="col-10">
               <div>
-                <a href="/users/{{this.UserId}}"><strong>{{this.User.name}}</strong></a>
-                <span>@{{this.User.account}}·{{moment this.updatedAt}}</span>
+                <a href="/users/{{this.UserId}}"><strong style="font-size: 16px; font-weight: 700;">{{this.User.name}}</strong></a>
+                <span style="color: #6C757D; font-size:14px; font-weight: 400">@{{this.User.account}}·{{moment this.updatedAt}}</span>
               </div>
               <p>回覆<span style="color: #FF6600;">@{{../tweet.User.account}}</span></p>
               <p>{{subText this.comment 140}}</p>
