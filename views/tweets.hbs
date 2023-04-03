@@ -64,16 +64,17 @@
                 <a href="/users/{{this.User.dataValues.id}}"><strong>{{this.User.dataValues.name}}</strong></a>
                 <span style="color: #6C757D;">@{{this.User.dataValues.account}}．{{moment this.createdAt}}</span>
               </div>
-              <p data-bs-toggle="modal" data-bs-target="#reply-modal{{this.id}}">{{this.description}}</p>
+              <a href="/tweets/{{this.id}}"><p>{{this.description}}</p></a>
             </div>
           </div>
           <div class="d-flex">
-            <form action="/tweets/{{this.id}}" method="GET">
-              <button type="submit" class="btn" style="padding-right: 0px;"><img class="left-bar-icon"
-                  src="/images/reply-outlined@2x.png" alt="reply"></button>
-              <span
+            <div>
+              <button type="submit" class="btn" data-bs-toggle="modal" data-bs-target="#reply-modal{{this.id}}"
+                style="padding-right: 0px;"><img class="left-bar-icon" src="/images/reply-outlined@2x.png" alt="reply"></button>
+              <span class=""
                 style="line-height: 14px; font-size:14px; font-weight:600; color: #6C757D;">{{this.Replies.length}}</span>
-            </form>
+            </div>
+              
             {{#if this.isLiked}}
             <form action="/tweets/{{this.id}}/unlike" method="POST">
               <button type="submit" class="btn" style="padding-right: 0px;"><img class="left-bar-icon"
