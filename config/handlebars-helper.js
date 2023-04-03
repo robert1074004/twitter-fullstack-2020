@@ -1,4 +1,7 @@
 const moment = require('moment');
+require('moment/locale/zh-tw');
+
+moment.locale('zh-tw');
 
 module.exports = {
   Equal: (a, b, options) => {
@@ -11,7 +14,7 @@ module.exports = {
     return moment(a).fromNow(true);
   },
   nowTime: (a) => {
-    return moment().format("hA")
+    return moment().format("hA");
   },
   subText: (content, num) => {
     let count = Number(num) ? Number(num) : 50;

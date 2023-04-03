@@ -4,7 +4,7 @@
       <div class="ac-icon mt-2 mb-4">
         <img class="ac-img" width="50px" , height="50px" src="/images/AC-icon@2x.png" alt="AC icon">
       </div>
-      <div class="home mb-3">
+      <div class="home left-bar-margin">
         <a href="/tweets">
         {{#ifNotCond route "tweets"}}
           <img class="left-bar-icon" src="/images/home-outlined@2x.png" alt="home">
@@ -17,7 +17,7 @@
         </a>
       </div>
 
-      <div class="personal-info mb-3">
+      <div class="personal-info left-bar-margin">
         <a href="/users/{{user.id}}">
         {{#ifNotCond route "profile"}}
           <img class="left-bar-icon" src="/images/user-outlined@2x.png" alt="home">
@@ -30,7 +30,7 @@
         </a>
       </div>
 
-      <div class="personal-info-setting mb-3">
+      <div class="personal-info-setting mb-4">
         
         <a href="/edit">
           {{#ifNotCond route "setting"}}
@@ -51,7 +51,7 @@
       <div class="logout">
         <img class="left-bar-icon" src="/images/logout@2x.png" alt="logout">
         <a href="/logout">
-          <span><strong>登出</strong></span>
+          <span class="word"><strong>登出</strong></span>
         </a>
       </div>
     </div>

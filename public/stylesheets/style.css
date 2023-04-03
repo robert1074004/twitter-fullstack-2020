@@ -79,11 +79,20 @@ a:hover {
   right: 10%;
   bottom: 10%;
 }
-
+.ac-img {
+  width: 40px;
+  height: 40px;
+}
+.word {
+  font-size: 18px;
+}
 .left-bar-icon {
   width: 20px;
   height: 20px;
   margin-right: 17.62px;
+}
+.left-bar-margin {
+  margin-bottom: 40px;
 }
 .modal-input-tweets {
   width: 70%;
