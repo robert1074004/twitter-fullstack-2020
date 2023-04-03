@@ -25,13 +25,12 @@
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <img src="/images/edit-profile-close@2x.png" class="close-image user-profile-edit" data-bs-dismiss="modal" alt="Close">
               </div>
               <div class="modal-body">
                 <a href="/users/{{user.id}}">
                   <img src="{{user.avatar}}" class="fl" width="50px" height="50px" style="border-radius:50%; margin-right: 3px;" />
                 </a>
-                
                 <form action="/tweets" method="POST">
                   <textarea class="modal-input-tweets" id="user-tweet-description-in-main" type="description"
                     placeholder="有什麼新鮮事？" name="description" id="user-tweet-description" maxlength="150" rows="3"
@@ -98,7 +97,7 @@
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <img src="/images/edit-profile-close@2x.png" class="close-image user-profile-edit" data-bs-dismiss="modal" alt="Close">
               </div>
               <div class="modal-body">
                 <div class="row">
@@ -144,6 +143,48 @@
       </div>
     </div>
     {{> rightbar}}
+  </div>
+</div>
+
+<div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form action="/api/users/{{user.id}}" enctype="multipart/form-data" method="post">
+      <input type="hidden" name="_method" value="PUT">
+      <div class="modal-content user-profile-edit">
+        <!-- Modal header -->
+        <div class="modal-header user-profile-edit d-flex">
+          <div class="p-2">
+            <img src="/images/edit-profile-close@2x.png" class="close-image user-profile-edit" data-bs-dismiss="modal"
+              alt="Close">
+          </div>
+          
+        </div>
+        <div class="modal-body user-profile-edit">
+          <div class="user-profile-edit-cover">
+            <label for="cover">
+              <img src="{{user.cover}}" alt="Cover Image" class="image-hover-effect" style="cursor: pointer;">
+            </label>
+            <input type="file" class="user-profile-edit-form-control d-none" id="cover" name="cover" accept="image/*">
+          </div>
+          <div class="user-profile-edit-image">
+            <label for="avatar">
+              <img src="{{user.avatar}}" alt="Profile Image" class="image-hover-effect" style="cursor: pointer;">
+            </label>
+            <input type="file" class="user-profile-edit-form-control d-none" id="avatar" name="avatar" accept="image/*">
+          </div>
+          <!-- Name input -->
+          <div class="user-profile-edit-form">
+            <label for="name" class="user-profile-edit-form-label">名稱</label>
+            <input type="text" class="user-profile-edit-form-control" id="name" name="name" maxlength="50"
+              placeholder="請輸入使用者名稱" value="{{user.name}}">
+          </div>
+          <span class="form-text float-end" id="name-char-count">0 / 50</span>
+          <br>
+          
+          <span class="form-text float-end" id="self-introduction-char-count">0 / 160</span>
+        </div>
+      </div>
+    </form>
   </div>
 </div>
 
