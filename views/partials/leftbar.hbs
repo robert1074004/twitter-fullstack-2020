@@ -21,7 +21,7 @@
         <a href="/users/{{user.id}}">
         {{#ifNotCond route "profile"}}
           <img class="left-bar-icon" src="/images/user-outlined@2x.png" alt="home">
-          <span class="word">首頁</span>
+          <span class="word">個人資料</span>
         {{/ifNotCond}}
         {{#ifCond route "profile"}}
           <img class="left-bar-icon" src="/images/user-orange@2x.png" class="base-icon">
@@ -35,7 +35,7 @@
         <a href="/edit">
           {{#ifNotCond route "setting"}}
           <img class="left-bar-icon" src="/images/setting-outlined@2x.png" alt="home">
-          <span class="word">首頁</span>
+          <span class="word">設定</span>
           {{/ifNotCond}}
           {{#ifCond route "setting"}}
           <img class="left-bar-icon" src="/images/setting-orange@2x.png" class="base-icon">
