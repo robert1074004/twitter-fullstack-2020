@@ -164,6 +164,8 @@ a:hover {
   margin-left: 10px;
   display: flex;
   flex-direction: column;
+  font-weight: 700;
+  font-size: 16px;
 }
 
 .list-item-name a {
@@ -177,8 +179,9 @@ a:hover {
   align-self: flex-start;
   margin-top: -3px;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 14px;
   color: #657786;
+  font-weight: 500;
 }
 
 .follow-footer {

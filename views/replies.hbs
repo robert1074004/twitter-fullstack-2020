@@ -86,10 +86,10 @@
                     style="border-radius:50%; margin-right: 3px;" />
                 </a>
                 <form action="/tweets/{{tweet.id}}/replies" method="POST">
-                  <textarea class="modal-input-tweets" placeholder="推你的回覆" name="comment" id="user-reply-in-replies"
-                    maxlength="145" rows="3" cols="100"></textarea>
+                  <textarea class="modal-input-tweets" placeholder="推你的回覆" name="comment" id="user-reply-in-replies" maxlength="145"
+                    rows="3" cols="100"></textarea>
                   <div class="d-flex flex-row-reverse mb-1">
-                    <button class="tweetbtn" type="submit">回覆</button>
+                    <button class="tweetbtn" type="submit" id="submit-reply">回覆</button>
                     <p id="user-reply-alert-in-replies" class="user-reply-alertMsg"></p>
                   </div>
                 </form>
@@ -154,35 +154,40 @@
 </div>
 
 <script>
-  const userReplyDescription = document.getElementById('user-reply-in-replies')
-  const userReplyDescriptionAlertMsg = document.getElementById('user-reply-alert-in-replies')
-  const userTweetDescription = document.getElementById('user-tweet-description-in-replies')
-  const userTweetDescriptionAlertMsg = document.getElementById('user-tweet-description-alert-in-replies')
+  const userReplyDescription = document.getElementById('user-reply-in-replies');
+  const userReplyDescriptionAlertMsg = document.getElementById('user-reply-alert-in-replies');
+  const userTweetDescription = document.getElementById('user-tweet-description-in-replies');
+  const userTweetDescriptionAlertMsg = document.getElementById('user-tweet-description-alert-in-replies');
+  const submitReplyButton = document.getElementById('submit-reply');
 
-  userReplyDescription.addEventListener('input', function userTweetModalMsg(e) {
-    const replyContent = e.target.value
-    const trimedReplyCnt = replyContent.trim()
-    console.log(replyContent)
-    console.log(trimedReplyCnt.length)
-    if (!trimedReplyCnt.length) {
-      userReplyDescriptionAlertMsg.innerHTML = '內容不可空白'
-    } else if (trimedReplyCnt.length > 0 && trimedReplyCnt.length < 140) {
-      userReplyDescriptionAlertMsg.innerHTML = `${trimedReplyCnt.length}/140`
-    } else if (trimedReplyCnt.length > 140) {
-      userReplyDescriptionAlertMsg.innerHTML = '內容不可超過 140 字'
+  function updateAlertMsg(input, alertMsg) {
+    const content = input.value;
+    const trimmedContent = content.trim();
+    if (!trimmedContent.length) {
+      alertMsg.innerHTML = '內容不可空白';
+      return false;
+    } else if (trimmedContent.length <= 140) {
+      alertMsg.innerHTML = `${trimmedContent.length}/140`;
+      return true;
+    } else {
+      alertMsg.innerHTML = '內容不可超過 140 字';
+      return false;
     }
-  })
-  userTweetDescription.addEventListener('input', function userTweetModalMsg(e) {
-    const tweetContent = e.target.value
-    const trimedTweetCnt = tweetContent.trim()
-    console.log(tweetContent)
-    console.log(trimedTweetCnt.length)
-    if (!trimedTweetCnt.length) {
-      userTweetDescriptionAlertMsg.innerHTML = '內容不可空白'
-    } else if (trimedTweetCnt.length > 0 && trimedTweetCnt.length < 140) {
-      userTweetDescriptionAlertMsg.innerHTML = `${trimedTweetCnt.length}/140`
-    } else if (trimedTweetCnt.length > 140) {
-      userTweetDescriptionAlertMsg.innerHTML = '內容不可超過 140 字'
+  }
+
+  userReplyDescription.addEventListener('input', function (e) {
+    updateAlertMsg(userReplyDescription, userReplyDescriptionAlertMsg);
+  });
+
+  userTweetDescription.addEventListener('input', function (e) {
+    updateAlertMsg(userTweetDescription, userTweetDescriptionAlertMsg);
+  });
+
+  submitReplyButton.addEventListener('click', function (e) {
+    const isReplyValid = updateAlertMsg(userReplyDescription, userReplyDescriptionAlertMsg);
+    if (!isReplyValid) {
+      e.preventDefault();
     }
-  })
+  });
+
 </script>
