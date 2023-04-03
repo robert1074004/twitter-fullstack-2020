@@ -2,9 +2,9 @@
   <div class="right-side-container right-bar fix-bar">
     <h4><strong>推薦跟隨</strong></h4>
     <hr>
-    <div class="top-follow-list">
+    <div class="top-follow-list" style="border-radius: 16px;">
       {{#each user.TopUsers}}
-      <div class="list-item follow-body">
+      <div class="list-item follow-body" style="border-bottom: none;">
         <a href="/users/{{this.id}}" class="follow-avatar">
           <img src="{{this.avatar}}" class="rounded-circle" style="width: 50px;height:50px;">
         </a>
