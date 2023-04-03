@@ -5,23 +5,34 @@
         <img class="ac-img" width="50px" , height="50px" src="/images/AC-icon@2x.png" alt="AC icon">
       </div>
       <div class="home mb-3">
-        <img class="left-bar-icon" src="/images/home-filled@2x.png" alt="home">
         <a href="/tweets">
-          <span><strong>首頁</strong></span>
+        {{#ifCond route "tweets"}}
+        <img src="/images/home-filled@2x.png" class="base-icon">
+        <span class="word" style="color: #FF6600;">首頁</span>
+        {{/ifCond}}
+          <h5 style="color:{{#ifCond route 'tweets'}}#FF6600;{{else}}black{{/ifCond}}">
+            <img class="left-bar-icon" src="/images/home-outlined@2x.png" alt="home">
+            首頁
+          </h5>
         </a>
       </div>
 
       <div class="personal-info mb-3">
-        <img class="left-bar-icon" src="/images/user-filled@2x.png" alt="user">
         <a href="/users/{{user.id}}">
-          <span><strong>個人資料</strong></span>
+          <h5 style="color:{{#ifCond route 'profile'}}#FF6600;{{else}}black{{/ifCond}}">
+            <img class="left-bar-icon" src="/images/user-outlined@2x.png" alt="user">
+            個人資料
+          </h5>
         </a>
       </div>
 
       <div class="personal-info-setting mb-3">
-        <img class="left-bar-icon" src="/images/setting-filled@2x.png" alt="setting">
+        
         <a href="/edit">
-          <span><strong>設定</strong></span>
+            <h5 style="color:{{#ifCond route 'setting'}}#FF6600;{{else}}black{{/ifCond}}">
+              <img class="left-bar-icon" src="/images/setting-outlined@2x.png" alt="setting">
+              設定
+            </h5>
         </a>
       </div>
 
