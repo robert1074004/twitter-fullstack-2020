@@ -87,8 +87,8 @@ a:hover {
   font-size: 18px;
 }
 .left-bar-icon {
-  width: 20px;
-  height: 20px;
+  width: 13.7px;
+  height: 13.7px;
   margin-right: 17.62px;
 }
 .left-bar-margin {
@@ -166,7 +166,7 @@ textarea {
 }
 
 .user-profile-cover {
-  width: 100%;
+  width: 639px;
   height: 200px;
   overflow: hidden;
 }
