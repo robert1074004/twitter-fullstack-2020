@@ -6,10 +6,6 @@
       </div>
       <div class="home mb-3">
         <a href="/tweets">
-        {{#ifCond route "tweets"}}
-        <img src="/images/home-filled@2x.png" class="base-icon">
-        <span class="word" style="color: #FF6600;">首頁</span>
-        {{/ifCond}}
           <h5 style="color:{{#ifCond route 'tweets'}}#FF6600;{{else}}black{{/ifCond}}">
             <img class="left-bar-icon" src="/images/home-outlined@2x.png" alt="home">
             首頁
