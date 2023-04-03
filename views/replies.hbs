@@ -90,7 +90,7 @@
                     rows="3" cols="100"></textarea>
                   <div class="d-flex flex-row-reverse mb-1">
                     <button class="tweetbtn" type="submit" id="submit-reply">回覆</button>
-                    <p id="user-reply-alert-in-replies" class="user-reply-alertMsg"></p>
+                    <p id="user-reply-alert-in-replies" class="user-reply-alertMsg">內容不可空白</p>
                   </div>
                 </form>
               </div>
@@ -143,7 +143,7 @@
             required></textarea>
           <div class="d-flex flex-row-reverse mb-1">
             <button class="tweetbtn" type="submit">推文</button>
-            <p id="user-tweet-description-alert-in-replies" class="user-tweet-alertMsg"></p>
+            <p id="user-tweet-description-alert-in-main" class="user-tweet-alertMsg">字數不可超過 140 字</p>
           </div>
         </form>
       </div>
@@ -170,7 +170,7 @@
       alertMsg.innerHTML = `${trimmedContent.length}/140`;
       return true;
     } else {
-      alertMsg.innerHTML = '內容不可超過 140 字';
+      alertMsg.innerHTML = '字數不可超過 140 字';
       return false;
     }
   }
