@@ -3,8 +3,8 @@
     {{> leftbar}}
     <div class="col-7" style="border: 1px solid #E6ECF0;padding:0px;">
       <div class="user-profile-page">
-        <div class="user-header d-flex align-items-center mt-3">
-          <div class="user-profile-header-back flex-shrink-0">
+        <div class="user-header d-flex align-items-center mt-1">
+          <div class="user-profile-header-back">
             <a href="/tweets">
               <img src="/images/back@2x.png" alt="home">
             </a>
@@ -51,12 +51,14 @@
               {{/if}}
               {{#if isFollowing}}
               <form action="/followships/{{visitUser.id}}?_method=DELETE" method="POST">
-                <button type="submit" class="btn" style="background: #FF6600;color:white;border-radius: 50px;">正在跟隨</button>
+                <button type="submit" class="btn"
+                  style="background: #FF6600;color:white;border-radius: 50px; margin-right: 16px;">正在跟隨</button>
               </form>
               {{else}}
               <form action="/followships" method="POST">
-                <button class="btn btn-outline" style="color: #FF6600;border-radius: 50px; border: 1px solid #FF6600;" name="id"
-                  value="{{visitUser.id}}">追蹤</button>
+                <button class="btn btn-outline"
+                  style="color: #FF6600;border-radius: 50px; border: 1px solid #FF6600;  margin-right: 16px; margin-right: 16px;"
+                  name="id" value="{{visitUser.id}}">追蹤</button>
               </form>
               {{/if}}
             </div>
