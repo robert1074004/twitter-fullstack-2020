@@ -4,6 +4,10 @@ body {
   font-weight: 400;
 }
 
+hr {
+  border: 1px solid #E6ECF0
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -80,6 +84,66 @@ a:hover {
   bottom: 10%;
 }
 
+.new-tweetbtn {
+  width: 70px;
+  height: 40px;
+  padding: 8px 16px;
+  background: #FF6600;
+  border: 0px;
+  border-radius: 50px;
+
+  font-size: 16px;
+  font-size: 400;
+  color: #fff;
+  text-decoration: none;
+
+  align-items: center;
+
+  right: 10%;
+  bottom: 10%;
+}
+
+.tweet-box-tweetbtn {
+  margin-right: 25px;
+  margin-bottom: 16px;
+  width: 70px;
+  height: 40px;
+  padding: 8px 16px;
+  background: #FF6600;
+  border: 0px;
+  border-radius: 50px;
+
+  font-size: 16px;
+  font-size: 400;
+  color: #fff;
+  text-decoration: none;
+
+  align-items: center;
+
+  right: 10%;
+  bottom: 10%;
+}
+
+.divider {
+  width: 100%;
+  height: 10px;
+  background: #E6ECF0;
+  transform: rotate(180deg);
+}
+
+.tweets-list-main-photo {
+  margin-top: 16px;
+}
+
+.tweets-list-details {
+  margin-top: 16px;
+}
+
+.tweets-list-details-name {
+  font-size: 16px;
+  font-weight: 700;
+}
+
 .ac-img {
   width: 40px;
   height: 40px;
@@ -100,6 +164,7 @@ a:hover {
 }
 
 .modal-input-tweets {
+  margin-left: 84px;
   width: 70%;
   height: 80px;
   /* border: transparent; */
@@ -107,8 +172,34 @@ a:hover {
   outline: none;
 }
 
+.tweet-custom-modal-dialog {
+  max-width:: 634px;
+  max-height: 300px;
+}
+
+.reply-modal-custom-size {
+  max-width: 600px;
+  max-height: 450px;
+}
+
 .fl {
-  float: left;
+  margin-left: 26px;
+}
+
+.tweet-reply-profile {
+  margin-left: 16px;
+  margin-right: 3px;
+  border-radius: 50%;
+}
+
+.fl-tweet {
+  margin-left: 15px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.fl-reply {
+  margin-left: 15px;
 }
 
 textarea {
@@ -116,12 +207,11 @@ textarea {
 }
 
 .reply-modal-vr-line {
-  height: 100px;
-  border-left: 2px solid gray;
-  position: relative;
-  top: 60px;
-  left: 23px;
-  margin-bottom: 10px;
+  position: absolute;
+  width: 2px;
+  height: 80px;
+  border-left: 2px solid #CCD6DD;
+  left: 40px;
 }
 
 .tweet-flow-text {
@@ -173,7 +263,7 @@ textarea {
 }
 
 .user-profile-cover {
-  width: 639px;
+  width: 100%;
   height: 200px;
   overflow: hidden;
 }
@@ -212,6 +302,7 @@ textarea {
   font-size: 16px;
   color: #FF6600;
   padding: 8px 16px;
+  margin-right: 16px;
   background: #ffffff;
   border: 1px solid #FF6600;
   border-radius: 50px;
@@ -280,6 +371,11 @@ textarea {
   align-items: flex-start;
 }
 
+.main-user-replies {
+  display: flex;
+  align-items: flex-start;
+}
+
 .user-replies-content {
   display: flex;
   flex-direction: column;
@@ -291,11 +387,15 @@ textarea {
   display: flex;
   align-items: center;
   color: #171725;
+  font-weight: 700;
+  font-size: 16px;
 }
 
 .user-replies-name-time span {
   margin-left: 8px;
   color: #6C757D;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 .user-replies-details-reply-to {
@@ -309,8 +409,13 @@ textarea {
 }
 
 .user-replies-details-reply {
+  margin-top: 10px;
+  font-weight: 400;
   font-size: 16px;
   color: #171725;
+  word-break: break-word;
+  width: 100%;
+  max-width: 100%;
 }
 
 .follower-description {
@@ -328,17 +433,6 @@ textarea {
   margin-right: 41.3px;
 }
 
-.user-replies-details-like-numbers img {
-  display: flex;
-  width: 13.17px;
-  height: 13.17px;
-}
-
-.user-replies-details-like-numbers span {
-  display: flex;
-  color: #6C757D;
-}
-
 .user-replies-details-reply-numbers img {
   display: flex;
   width: 13.17px;
@@ -350,6 +444,27 @@ textarea {
   color: #6C757D;
 }
 
+.main-user-replies-details-reply-numbers {
+  margin-right: 41.3px;
+}
+
+.main-user-replies-details-reply-numbers img {
+  display: flex;
+  width: 13.17px;
+  height: 13.17px;
+}
+
+.main-user-replies-details-reply-numbers span {
+  display: flex;
+  color: #6C757D;
+}
+
+.main-user-replies-details-like-numbers,
+.main-user-replies-details-reply-numbers {
+  display: flex;
+  align-items: center;
+}
+
 .user-replies-details-like-numbers,
 .user-replies-details-reply-numbers {
   display: flex;
@@ -357,10 +472,43 @@ textarea {
   gap: 9.44px;
 }
 
+.user-replies-details-like-numbers img {
+  display: flex;
+  width: 13.17px;
+  height: 13.17px;
+}
+
+.user-replies-details-like-numbers span {
+  display: flex;
+  color: #6C757D;
+}
+
+.main-user-replies-details-like-numbers img {
+  display: flex;
+  width: 13.17px;
+  height: 13.17px;
+}
+
+.main-user-replies-details-like-numbers span {
+  display: flex;
+  color: #6C757D;
+}
+
 .modal-content.user-profile-edit {
   padding: 0;
   padding-bottom: 40px;
   border-radius: 14px;
+}
+
+.modal-content.user-profile-edit-new-tweet {
+  padding: 0;
+  border-radius: 14px;
+}
+
+.modal-content.user-profile-edit-new-reply {
+  padding: 0;
+  border-radius: 14px;
+  word-break: break-word;
 }
 
 .modal-body.user-profile-edit {
@@ -370,6 +518,15 @@ textarea {
 .modal-header.user-profile-edit {
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+.modal-header.new-tweet {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.new-tweet-send {
+  bottom: 15px;
 }
 
 .close-image.user-profile-edit {
@@ -420,18 +577,34 @@ textarea {
 
 .user-profile-edit-image {
   position: absolute;
-  top: 90px;
+  top: 124px;
   left: 16px;
   width: 140px;
   height: 140px;
   border-radius: 50%;
   overflow: hidden;
   border: 4px solid #fff;
+  z-index: 1;
 }
 
 .user-profile-edit-image img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-profile-edit-form-top {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-top: 80px;
+  margin-left: 16px;
+  margin-right: 16px;
+  background-color: #F5F8FA;
+  border-radius: 2px;
+  border-bottom: 2px solid #657786;
+  padding-left: 17px;
+  padding-right: 17px;
 }
 
 .user-profile-edit-form {
@@ -576,4 +749,191 @@ textarea {
   border-left: 1px solid #E6ECF0;
   border-right: 1px solid #E6ECF0;
   height: 100%;
+}
+
+.top-follow-list-title {
+  padding-top: 24px;
+  padding-right: 150px;
+  padding-left: 24px;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.user-profile-header-back {
+  margin-left: 28px;
+}
+
+.main-page {
+  margin-left: 24px;
+  margin-top: 24px;
+}
+
+.new-fl-reply {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.new-reply-modal-vr-line {
+  position: absolute;
+  margin-top: 5px;
+  width: 2px;
+  height: 60px;
+  border-left: 2px solid #CCD6DD;
+  left: 40px;
+}
+
+.new-user-name {
+  font-size: 16px;
+  margin-left: 10px;
+  font-weight: 700;
+}
+
+.new-user-info {
+  color: #6C757D;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.new-modal-input-tweets {
+  font-size: 16px;
+  font-weight: 400;
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.new-reply-to {
+  color: #6C757D;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.new-reply-to-name {
+  color: #FF6600;
+  font-size: 13px;
+  font-weight: 400;
+  margin-left: 5px;
+}
+
+.tweet-details {
+  margin-left: 10px;
+}
+
+.custom-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -50px;
+}
+
+/* 通用樣式 */
+.user-description {
+  background-color: #ffffff;
+  padding: 15px;
+  padding-bottom: 0px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.ps-3 {
+  padding-left: 1rem;
+}
+
+.px-3 {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.p-3 {
+  padding: 1rem;
+}
+
+/* Tweets列表主圖片 */
+.new-tweets-list-main-photo {
+  position: absolute;
+  margin-left: 8px;
+}
+
+/* 用戶回覆名稱和時間 */
+.new-user-replies-name-time {
+  margin-left: 74px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #171725;
+  margin-bottom: 5px;
+}
+
+.new-user-replies-name-time span {
+  font-weight: 400;
+  font-size: 14px;
+  color: #6C757D;
+  margin-bottom: 5px;
+}
+
+/* Tweet內容在回覆頁面 */
+.new-tweet-content-in-replies-page {
+  font-weight: 400;
+  font-size: 24px;
+  color: #171725;
+  margin-top: 8px;
+  margin-bottom: 5px;
+  margin-left: 8px;
+}
+
+/* Tweet時間 */
+.new-new-tweet-time {
+  font-size: 14px;
+  color: #6c757d;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+/* 回覆和喜歡數量 */
+.new-replies-and-likes-counts {
+  font-weight: 700;
+  font-size: 19px;
+  color: #6c757d;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.new-replies-and-likes-counts span:first-child {
+  margin-right: 24px;
+}
+
+/* 回覆和喜歡按鈕 */
+.new-reply-and-like-btn {
+  justify-content: space-between;
+  width: 173px;
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.new-left-bar-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.new-row {
+  display: flex;
+}
+
+.new-col-avatar {
+  flex: 0 0 16.66667%;
+  padding-right: 8px;
+  padding-left: 15px;
+}
+
+.new-col-content {
+  flex: 0 0 83.33333%;
+  padding-right: 15px;
+  padding-left: 0px;
 }

@@ -24,6 +24,58 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
     integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
     crossorigin="anonymous"></script>
+  <script>
+    const userTweetDescription = document.getElementById('user-tweet-description-in-main')
+    const userTweetDescriptionAlertMsg = document.getElementById('user-tweet-description-alert-in-main')
+    const userReplyDescription = document.getElementById('new-user-reply-in-main');
+    const userReplyDescriptionAlertMsg = document.getElementById('user-reply-alert-in-main')
+
+    userTweetDescription.addEventListener('input', function userTweetModalMsg(e) {
+      const tweetContent = e.target.value.trim();
+      if (!tweetContent.length) {
+        userTweetDescriptionAlertMsg.innerHTML = '內容不可空白';
+        userTweetDescriptionAlertMsg.style.color = 'red';
+      } else if (tweetContent.length <= 140) {
+        userTweetDescriptionAlertMsg.innerHTML = `${tweetContent.length}/140`;
+        userTweetDescriptionAlertMsg.style.color = 'black';
+      } else if (tweetContent.length > 140) {
+        userTweetDescriptionAlertMsg.innerHTML = '字數不可超過 140 字';
+        userTweetDescriptionAlertMsg.style.color = 'red';
+      }
+    });
+
+    userReplyDescription.addEventListener('input', function userReplyModalMsg(e) {
+      const replyContent = e.target.value.trim();
+      if (!replyContent.length) {
+        userReplyDescriptionAlertMsg.innerHTML = '內容不可空白';
+        userReplyDescriptionAlertMsg.style.color = 'red';
+      } else if (replyContent.length <= 140) {
+        userReplyDescriptionAlertMsg.innerHTML = `${replyContent.length}/140`;
+        userReplyDescriptionAlertMsg.style.color = 'black';
+      } else if (replyContent.length > 140) {
+        userReplyDescriptionAlertMsg.innerHTML = '字數不可超過 140 字';
+        userReplyDescriptionAlertMsg.style.color = 'red';
+      }
+    });
+
+    function validateTweet() {
+      const tweetContent = userTweetDescription.value.trim();
+      if (!tweetContent.length || tweetContent.length > 140) {
+        return false;
+      }
+      return true;
+    }
+
+    function validateReply() {
+      const replyContent = userReplyDescription.value.trim();
+      if (!replyContent.length) {
+        userReplyDescriptionAlertMsg.innerHTML = '內容不可空白';
+        return false;
+      }
+      return true;
+    }
+
+  </script>
 </body>
 
 </html>
