@@ -173,61 +173,26 @@
 
 {{!-- user推文彈跳視窗 --}}
 <div class="modal" tabindex="-1" id="user-tweet-modal">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <div class="modal-dialog modal-lg tweet-custom-modal-dialog">
+    <div class="modal-content user-profile-edit-new-tweet">
+      <div class="modal-header new-tweet">
+        <img src="/images/edit-profile-close@2x.png" class="close-image user-profile-edit" data-bs-dismiss="modal"
+          alt="Close">
       </div>
       <div class="modal-body">
         <a href="/users/{{user.id}}">
-          <img src="{{user.avatar}}" class="fl" width="50px" height="50px"
-            style="border-radius:50%; margin-right: 3px;" />
+          <img src="{{user.avatar}}" class="fl-tweet" width="50px" height="50px" />
         </a>
-
         <form action="/tweets" method="POST" onsubmit="return validateTweet();">
           <textarea class="modal-input-tweets" id="user-tweet-description-in-main" type="description"
             placeholder="有什麼新鮮事？" name="description" id="user-tweet-description" maxlength="140" rows="3" cols="100"
             required></textarea>
-          <div class="d-flex flex-row-reverse mb-1">
+          <div class="d-flex flex-row-reverse mb-1 new-tweet-send">
             <button class="tweetbtn" type="submit">推文</button>
             <p id="user-tweet-description-alert-in-main" class="user-tweet-alertMsg">字數不可超過 140 字</p>
           </div>
         </form>
       </div>
-      <div class="modal-footer">
-      </div>
     </div>
   </div>
 </div>
-
-<script>
-  document.getElementById('name').addEventListener('input', function () {
-    document.getElementById('name-char-count').textContent = this.value.length + ' / 50';
-  });
-
-  document.getElementById('self-introduction').addEventListener('input', function () {
-    document.getElementById('self-introduction-char-count').textContent = this.value.length + ' / 160';
-  });
-
-  userTweetDescription.addEventListener('input', function userTweetModalMsg(e) {
-      const tweetContent = e.target.value.trim();
-      if (!tweetContent.length) {
-        userTweetDescriptionAlertMsg.innerHTML = '內容不可空白';
-        userTweetDescriptionAlertMsg.style.color = 'red';
-      } else if (tweetContent.length <= 140) {
-        userTweetDescriptionAlertMsg.innerHTML = `${tweetContent.length}/140`;
-        userTweetDescriptionAlertMsg.style.color = 'black';
-      } else {
-        userTweetDescriptionAlertMsg.innerHTML = '字數不可超過 140 字';
-        userTweetDescriptionAlertMsg.style.color = 'red';
-      }
-    });
-
-  function validateTweet() {
-    const tweetContent = userTweetDescription.value.trim(); if (!tweetContent.length || tweetContent.length > 140) {
-      return false;
-    }
-    return true;
-  }
-
-</script>
