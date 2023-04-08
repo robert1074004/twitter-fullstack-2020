@@ -26,8 +26,13 @@ router.get('/signup', userController.registerPage)
 router.post('/signup', userController.signup)
 
 router.get('/signin', userController.loginPage)
-router.post('/signin', passport.authenticate('local', { successRedirect: '/tweets', failureRedirect: '/signin' }))
-
+router.post('/signin',passport.authenticate('local', {
+  failureRedirect: '/signin',
+  failureFlash: true,
+}),(req, res) => {
+  req.flash('successMessage', '登入成功')
+  res.redirect('/tweets')
+})
 router.get('/logout', userController.signout)
 router.use(followUser.topUsers);
 router.get('/users/:id/tweets', authenticated, userController.getTweets)

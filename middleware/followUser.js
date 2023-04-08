@@ -6,8 +6,7 @@ module.exports = {
     topUsers: (req, res, next) => {
         if (helpers.getUser(req)) {
             User.findAll({
-                where: { role: 'user' },
-                include: [{ model: User, as: 'Followers' }],
+                include: [{ model: User, as: 'Followers' }]
             }).then((users) => {
                 users = users
                     .map((data) => ({

@@ -46,13 +46,11 @@ const userController = {
             })
             .then(user => {
                 if (!user[1]) throw new Error('帳號或email已被註冊!')
+                req.flash('successMessage', '註冊成功')
                 res.redirect('/signin')
             })
             .catch(err => next(err))
 
-    },
-    signin: (req, res) => {
-        return res.redirect('/tweets');
     },
     signout: (req, res) => {
         req.flash('successMessage', '登出成功！');
